@@ -1,0 +1,9 @@
+"use client";
+
+import { useState } from "react";
+
+export function InquiryForm({ kind }: { kind: "creator" | "contact" }) {
+  const [submitted, setSubmitted] = useState(false);
+  const creator = kind === "creator";
+  return <form className="form-fields inquiry-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(true); }}><label>{creator ? "Name or studio name" : "Name"}<input required autoComplete="name" /></label><label>Email address<input type="email" required autoComplete="email" /></label>{creator && <><label>Location<input required autoComplete="address-level2" /></label><label>Creative discipline<select required defaultValue=""><option value="" disabled>Select a discipline</option><option>Clothing and fashion</option><option>Art and print</option><option>Product and object design</option><option>Craft and making</option><option>Other creative practice</option></select></label><label>Portfolio or social links<input type="url" placeholder="https://" /></label></>}<label>{creator ? "Tell us about your work" : "Message"}<textarea required rows={5} /></label>{creator && <label>Indicative products and prices<textarea rows={3} /></label>}<label className="consent-check"><input type="checkbox" required /><span>I agree to be contacted about this enquiry.</span></label><button className="button button-dark" type="submit">{submitted ? "Enquiry noted" : creator ? "Send application" : "Send message"}</button>{submitted && <p className="form-notice" role="status">This frontend prototype cannot send or save submissions yet. Connect the Django API before launch.</p>}</form>;
+}

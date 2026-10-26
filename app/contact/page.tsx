@@ -1,0 +1,5 @@
+import { InquiryForm } from "@/components/inquiry-form";
+
+export default function ContactPage() {
+  return <main className="page-main content-width"><header className="page-intro"><div className="eyebrow">Contact the collective</div><h1>GOOD IDEAS<br />START HERE.</h1><p>Questions about a piece, an idea for a collaboration, or something else on your mind? Tell us a little about it.</p></header><section className="application-layout contact-layout"><div><div className="eyebrow">Find us</div><h2>MADE IN<br />MALAWI.</h2><p className="body-copy">OFFSKRIPT is an independent creative collective based in Malawi and open to the world.</p><div className="contact-details"><span>General enquiries</span><p>hello@[your-domain]</p><span>Creator applications</span><p>creators@[your-domain]</p><span>Location</span><p>Malawi</p></div><p className="prototype-note">Replace example contact details with working addresses before launch.</p></div><div className="application-form"><div className="eyebrow">Write to us</div><InquiryForm kind="contact" /></div></section></main>;
+}
